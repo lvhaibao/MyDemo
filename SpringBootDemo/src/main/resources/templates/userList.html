@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <!--@{}：表示从staic目录下访问文件目录-->
+    <link th:href="@{/demo.css}" rel="stylesheet" />
+    <!--<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>-->
+</head>
+<body>
+<table width="100%" border="1" cellspacing="1" cellpadding="0">
+    <h3 >欢迎您<span th:text="${username}"></span></h3>
+    <h4 th:text="'欢迎您！'+${username}"></h4>
+    <p th:text="'Hello！, ' + ${username} + '!'" ></p>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>age</td>
+    </tr>
+    <!--/*@thymesVar id="learnList" type=""*/-->
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.age}"></td>
+    </tr>
+</table>
+</body>
+</html>
